@@ -1,11 +1,11 @@
 def find_pattern_positions(pattern, text):
-    positions = []
+    matching = []
 
     for i in range(len(text)):
         if is_match(pattern, text[i:]):
-            positions.append(i)
+            matching.append(i)
 
-    return positions
+    return matching
 
 def is_match(pattern, text):
     if not pattern or not text:
@@ -56,11 +56,11 @@ def main():
         text = text_file.read().strip()
 
     # Find pattern positions
-    positions = find_pattern_positions(pattern, text)
+    matching = string_matching(pattern, text)
     
     # Write positions to output.txt
     with open('output.txt', 'w') as output_file:
-        output_file.write("Pattern found at positions: " + ', '.join(map(str, positions)))
+        output_file.write("Pattern found at positions: " + ', '.join(map(str, matching)))
 
 if __name__ == "__main__":
     main()
