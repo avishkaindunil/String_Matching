@@ -36,5 +36,3 @@ Pattern found at positions: 0, 4, 11, 15, 18
 
 Please replace placeholders like `pattern.txt` and `text.txt` with the actual filenames you're using. This README provides a basic template, so feel free to add more details if needed.
 ```
-
-Save the above content in a file named `README.md` in the same directory as your Python script (`string_matcher.py`), `pattern.txt`, and `text.txt`. This README file will explain how to work with your regex code and how to run it.
