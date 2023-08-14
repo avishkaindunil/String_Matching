@@ -24,41 +24,41 @@ def is_match(pattern, text):
         return not text
 
     if pattern[0] == '(':
-        idx = pattern.find(')')
-        if idx != -1:
-            return is_match(pattern[idx+1:], text) or is_match(pattern[1:idx], text)
+        index = pattern.find(')')
+        if index != -1:
+            return is_match(pattern[index+1:], text) or is_match(pattern[1:index], text)
         else:
             return False
 
     if pattern[0] == '|':
-        idx = pattern.find('|', 1)
-        if idx != -1:
-            return is_match(pattern[1:idx], text) or is_match(pattern[idx+1:], text)
+        index = pattern.find('|', 1)
+        if index != -1:
+            return is_match(pattern[1:index], text) or is_match(pattern[index+1:], text)
         else:
             return False
     
     if pattern[0] == '[':
-        idx = pattern.find(']')
-        if idx != -1:
-            return (pattern[1] == text[0] or pattern[1] == '.' or text[0] in pattern[1:idx]) and is_match(pattern[idx+1:], text[1:])
+        index = pattern.find(']')
+        if index != -1:
+            return (pattern[1] == text[0] or pattern[1] == '.' or text[0] in pattern[1:index]) and is_match(pattern[index+1:], text[1:])
         else:
             return False
 
     return False
 
 def main():
-    # Read pattern from pattern.txt
+    # Read the pattern from pattern.txt
     with open('pattern.txt', 'r') as pattern_file:
         pattern = pattern_file.read().strip()
 
-    # Read text from text.txt
+    # Read the text from text.txt
     with open('text.txt', 'r') as text_file:
         text = text_file.read().strip()
 
-    # Find pattern positions
+    # Find the pattern positions
     matching = string_matching(pattern, text)
     
-    # Write positions to output.txt
+    # Write positions with the indexes to output.txt
     with open('output.txt', 'w') as output_file:
         output_file.write("Pattern found at positions: " + ', '.join(map(str, matching)))
 
