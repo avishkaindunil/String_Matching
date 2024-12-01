@@ -9,6 +9,7 @@ def find_pattern_positions(pattern, text):
 
 def is_match(pattern, text):
     if not pattern or not text:
+        
         return True
 
     if pattern[0] == text[0] or pattern[0] == '.':
