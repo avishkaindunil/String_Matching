@@ -1,6 +1,5 @@
 def find_pattern_positions(pattern, text):
     matching = []
-
     for i in range(len(text)):
         if is_match(pattern, text[i:]):
             matching.append(i)
